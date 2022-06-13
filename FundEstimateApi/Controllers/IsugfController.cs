@@ -5,6 +5,7 @@ using Services;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Threading.Tasks;
 using ViewModel;
 
 namespace FundEstimateApi.Controllers
@@ -23,7 +24,7 @@ namespace FundEstimateApi.Controllers
 
         [HttpGet]
         [Route("GetFundEstimate")]
-        public IActionResult GetFundEstimate()
+        public async Task<IActionResult> GetFundEstimate()
         {
             StateViewModel<List<FundEstimateModel>> state = new StateViewModel<List<FundEstimateModel>>();
             try
@@ -31,7 +32,7 @@ namespace FundEstimateApi.Controllers
                 state = _databaseService.GetFundEstimate();
 
                 if (state.Code == 200 && state.Response.Count > 0)
-                    _databaseService.SetSentStatus(state);
+                   await _databaseService.SetSentStatus(state);
                 return Ok(state);
             }
             catch (Exception ex)
