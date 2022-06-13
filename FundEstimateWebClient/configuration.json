@@ -1,0 +1,17 @@
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=A_CHULIEV;Database=ISUGF;User Id=sa;Password=P@ssw0rd"
+  },
+  "FileSettings": {
+    "FilePath": "C:\\Logs\\FUndEstimate\\",
+    "LogFileName": "Log.log"
+  },
+  "ThreadSettings": {
+    "SleepMinutes": "1",
+    "LogToFile": true,
+    "LogToConsole": true
+  },
+  "UrlAddress": {
+    "Url": "http://localhost:2049/api/"
+  }
+}
